@@ -1,0 +1,20 @@
+
+<ion-item>
+  <img slot="start" *ngIf="aviso?.foto" [src]="aviso.foto"/>
+   <ion-card-header>
+
+    <ion-card-subtitle>{{ aviso.fecha | fecha}} - {{ aviso.titulo}}</ion-card-subtitle>
+
+  </ion-card-header>
+
+  <ion-button slot="end" color="danger" (click)="eliminar.emit(aviso)">
+    <ion-icon name="trash-sharp"></ion-icon>
+  </ion-button>
+</ion-item>
+
+
+
+
+
+
+

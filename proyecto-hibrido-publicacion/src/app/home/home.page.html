@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Avisos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <app-aviso-card
+      *ngFor="let aviso of avisos"
+      [aviso]="aviso"
+      (eliminar)="confirmarEliminacion(aviso)">
+    </app-aviso-card>
+
+  </ion-list>
+
+  <ion-modal [isOpen]="isModalOpen" (ionModalDidDismiss)="cerrarModal()">
+    <ng-template>
+      <ion-content>
+        <ion-text color="danger">
+          <h2 class="ion-text-center">¿Eliminar este aviso?</h2>
+        </ion-text>
+        <ion-button expand="block" color="danger" (click)="eliminarAviso()">Eliminar</ion-button>
+        <ion-button expand="block" (click)="cerrarModal()">Cancelar</ion-button>
+
+      </ion-content>
+
+
+    </ng-template>
+  </ion-modal>
+</ion-content>
+<ion-footer>
+<ion-button routerLink="/crear-aviso"  >
+<ion-fab >
+  <ion-fab-button  >
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-button>
+</ion-footer>
